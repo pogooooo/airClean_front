@@ -29,7 +29,7 @@ const CleanList = () => {
     return (
         <div className="bg-gray-50 text-gray-800 py-16 md:py-24 px-4">
             <div className="container mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold">
+                <h2 className="text-3xl md:text-4xl">
                     실제 청소 사례로 증명합니다.
                 </h2>
 

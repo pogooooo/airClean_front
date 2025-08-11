@@ -7,111 +7,130 @@ const InquireWrapper = styled.div`
     background-color: #008080;
     width: 100%;
     color: white;
-    font-size: 28px;
     display: flex;
     align-items: center;
     flex-direction: column;
-`
+    padding: 2rem 0;
+`;
 
-const InquireTitle = styled.div`
-    margin-top: 50px;
-    margin-bottom: 50px;
-    font-size: clamp(24px, 4vw, 36px);
-`
+const InquireTitle = styled.h2`
+    margin-top: clamp(2rem, 5vw, 3rem);
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+    font-size: clamp(24px, 5vw, 36px);
+    font-weight: 400;
+    text-align: center;
+`;
 
-const InquireInput = styled.div`
-    & > div {
-        display: flex;
-        justify-content: space-between;
-        height: auto;
-        width: 30vw;
-        min-width: 330px;
-        padding: 5px;
-        gap: 10px;
-        
-        & > input, textarea {
-            flex: 1;                  /* 인풋이 남은 공간을 차지하도록 */
-            height: 30px;
-            padding: 5px;
-            border: none;
-            border-radius: 4px;
-            font-size: 20px;
-            font-family: "Do Hyeon", sans-serif;
-        }
-        & input:focus, textarea:focus {
-            outline: none;
-            box-shadow: none;
-        }
-        
-        & > textarea {
-            height: 100px;
-        }
-        
-        & > div {
-            width: 17%;
-            display: flex;
-            align-items: center;
-            font-size: clamp(16px, 1.3vw, 24px);
-        }
+const InquireForm = styled.div`
+    width: 90%;
+    max-width: 600px;
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+`;
+
+const InputGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    & > label {
+        font-size: clamp(14px, 3vw, 18px);
+        margin-left: 0.25rem;
     }
-`
+
+    & > input, textarea {
+        width: 100%;
+        padding: 0.75rem;
+        border: none;
+        border-radius: 8px;
+        font-size: clamp(16px, 3.5vw, 20px);
+        font-family: "Do Hyeon", sans-serif;
+        box-sizing: border-box;
+        color: black;
+    }
+
+    & input:focus, textarea:focus {
+        outline: 2px solid white;
+        box-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
+    }
+
+    & > textarea {
+        height: 100px;
+        resize: vertical;
+    }
+`;
 
 const OptionWrapper = styled.div`
     display: flex;
     flex-direction: column;
-    margin-top: 30px;
-    border-bottom: 3px solid white;
-    margin-bottom: 30px;
-    padding: 10px;
-    
-    & > div{
-        display: flex;
+    width: 90%;
+    max-width: 600px;
+    margin-top: 2rem;
+    padding-top: 1rem;
+    border-top: 2px solid white;
+    gap: 1.5rem;
+`;
+
+const OptionGroup = styled.div`
+    display: flex;
+    flex-direction: column;
+
+    @media (min-width: 500px) {
+        flex-direction: row;
         align-items: flex-start;
-        padding: 5px;
     }
-`
+`;
 
 const Category = styled.div`
-    width: auto;
-    border-right: 3px solid white;
-    display: inline-flex;
     white-space: nowrap;
-    padding-right: 10px;
-    margin-right: 10px;
-    font-size: clamp(12px, 1.3vw, 24px);
-`
+    padding-right: 1rem;
+    margin-bottom: 0.5rem;
+    font-size: clamp(14px, 3vw, 18px);
+
+    @media (min-width: 500px) {
+        border-right: 2px solid white;
+        margin-right: 1rem;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+`;
 
 const OptionList = styled.div`
     display: flex;
     flex-wrap: wrap;
-    
-    & > div {
-        margin-right: 20px;
-    }
-`
+    gap: 0.75rem;
+`;
 
 const ServiceItem = styled.div`
     display: inline-flex;
+    align-items: center;
     white-space: nowrap;
     cursor: pointer;
-    width: auto;
-    font-size: clamp(12px, 1.3vw, 24px);
+    font-size: clamp(14px, 3vw, 18px);
+    
+    svg {
+        font-size: clamp(16px, 4vw, 24px);
+        margin-right: 5px;
+    }
+`;
 
-  svg {
-    font-size: clamp(16px, 1.5vw, 28px);
-    margin-right: 5px;
-  }
-`
-
-const SubmitButton = styled.div`
+const SubmitButton = styled.button`
     background-color: white;
     color: #008080;
-    padding: clamp(8px, 2vw, 14px) clamp(20px, 4vw, 40px);
-    font-size: clamp(16px, 2vw, 24px); 
+    border: none;
+    padding: clamp(12px, 3vw, 18px) clamp(24px, 6vw, 48px);
+    font-size: clamp(16px, 4vw, 24px);
     border-radius: 10px;
     cursor: pointer;
-    margin-bottom: 50px;
-`
+    margin-top: 2rem;
+    margin-bottom: clamp(2rem, 5vw, 3rem);
+    transition: background-color 0.3s ease, color 0.3s ease;
+
+    &:hover {
+        background-color: #f0f0f0;
+    }
+`;
 
 const serviceOptions = {
     "가전 청소": ["에어컨 청소", "세탁기 청소", "공기청정기 청소"],
@@ -121,7 +140,6 @@ const serviceOptions = {
 };
 
 const Inquire = () => {
-
     const [formData, setFormData] = useState({
         name: "",
         phone: "",
@@ -147,7 +165,6 @@ const Inquire = () => {
     const handleSubmit = async () => {
         try {
             const res = await axios.post("http://localhost:3000/send-email", formData);
-
             if (res.status === 200) {
                 alert("문의가 접수되었습니다!");
             } else {
@@ -163,48 +180,47 @@ const Inquire = () => {
         <InquireWrapper>
             <InquireTitle>쉽고 빠르게 문의하기</InquireTitle>
 
-            <InquireInput>
-                <div>
-                    <div>성함</div>
-                    <input value={formData.name} onChange={handleInputChange("name")}/>
-                </div>
+            <InquireForm>
+                <InputGroup>
+                    <label htmlFor="name">성함</label>
+                    <input id="name" value={formData.name} onChange={handleInputChange("name")}/>
+                </InputGroup>
 
-                <div>
-                    <div>연락처</div>
-                    <input value={formData.phone} onChange={handleInputChange("phone")}/>
-                </div>
+                <InputGroup>
+                    <label htmlFor="phone">연락처</label>
+                    <input id="phone" value={formData.phone} onChange={handleInputChange("phone")}/>
+                </InputGroup>
 
-                <div>
-                    <div>이메일</div>
-                    <input value={formData.email} onChange={handleInputChange("email")}/>
-                </div>
+                <InputGroup>
+                    <label htmlFor="email">이메일</label>
+                    <input id="email" value={formData.email} onChange={handleInputChange("email")}/>
+                </InputGroup>
 
-                <div>
-                    <div>상세내용</div>
-                    <textarea value={formData.message} onChange={handleInputChange("message")}/>
-                </div>
-
-            </InquireInput>
+                <InputGroup>
+                    <label htmlFor="message">상세내용</label>
+                    <textarea id="message" value={formData.message} onChange={handleInputChange("message")}/>
+                </InputGroup>
+            </InquireForm>
 
             <OptionWrapper>
                 {Object.entries(serviceOptions).map(([category, items]) => (
-                    <div key={category}>
+                    <OptionGroup key={category}>
                         <Category>{category}</Category>
                         <OptionList>
                             {items.map((item) => (
                                 <ServiceItem key={item} onClick={() => toggleService(item)}>
-                                    <span>{item}</span>
                                     {formData.services[item] ? <IoIosCheckbox /> : <IoIosCheckboxOutline />}
+                                    <span>{item}</span>
                                 </ServiceItem>
                             ))}
                         </OptionList>
-                    </div>
+                    </OptionGroup>
                 ))}
             </OptionWrapper>
 
             <SubmitButton onClick={handleSubmit}>문의 보내기 →</SubmitButton>
         </InquireWrapper>
-    )
-}
+    );
+};
 
-export default Inquire
+export default Inquire;

@@ -10,7 +10,7 @@ const Home = () => {
             <Banner />
             <CleanList />
             <PromiseList />
-            {/* <Inquire /> */} {/* 문의하기 컴포넌트가 준비되면 주석 해제 */}
+            <Inquire />
         </main>
     );
 };

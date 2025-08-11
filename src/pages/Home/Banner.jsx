@@ -15,13 +15,13 @@ const Banner = () => {
             {/* z-10으로 오버레이 위에 콘텐츠가 오도록 설정 */}
             <div className="relative z-10 w-full max-w-lg h-auto bg-white/10 backdrop-blur-md rounded-xl shadow-2xl flex flex-col items-center justify-center text-center p-6 md:p-8 cursor-default border border-white/20">
                 <div className="flex items-center gap-2">
-                    <img src={logo} alt="로고" className="h-7 md:h-8" />
-                    <span className="text-lg md:text-xl font-semibold text-white">청결에어클린</span>
+                    <img src={logo} alt="로고" className="h-10 md:h-30" />
+                    <span className="text-lg md:text-xl text-white">청결에어클린</span>
                 </div>
-                <p className="text-2xl md:text-4xl font-bold text-white mt-6 leading-snug">
+                <p className="text-2xl md:text-4xl text-white mt-6 leading-snug">
                     세상이 아름다운 것은<br />청소하기 때문입니다.
                 </p>
-                <Link to="/inquire" className="mt-8 px-8 py-3 bg-teal-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105">
+                <Link to="/inquire" className="mt-8 px-8 py-3 bg-teal-600 text-white text-lg rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105">
                     문의하기 →
                 </Link>
             </div>

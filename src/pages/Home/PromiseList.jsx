@@ -23,7 +23,7 @@ const PromiseList = () => {
     return (
         <div className="bg-white py-16 md:py-24 px-4 cursor-default">
             <div className="container mx-auto text-center">
-                <h2 className="text-3xl md:text-4xl font-bold text-gray-800">
+                <h2 className="text-3xl md:text-4xl text-gray-800">
                     청결에어클린의 약속
                 </h2>
 
@@ -35,7 +35,7 @@ const PromiseList = () => {
                                 <img src={promise.imageSrc} alt={promise.title} className="w-full h-full object-cover" />
                             </div>
                             <div className="flex-1">
-                                <h3 className="text-2xl font-semibold text-gray-900">
+                                <h3 className="text-2xl text-gray-900">
                                     {promise.title}
                                 </h3>
                                 <p className="mt-2 text-gray-600 leading-relaxed">

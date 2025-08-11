@@ -25,9 +25,9 @@ const Header = () => {
                     <div className="flex-shrink-0">
                         <Link to="/" className="flex items-center space-x-2">
                             <img className="h-10 w-auto" src={logo} alt="청결에어클린 로고" />
-                            <span className="text-2xl font-bold text-gray-800 tracking-tight">
-                청결에어클린
-              </span>
+                            <span className="text-2xl text-gray-800 tracking-tight">
+                                청결에어클린
+                            </span>
                         </Link>
                     </div>
 
@@ -37,14 +37,14 @@ const Header = () => {
                             <Link
                                 key={item.to}
                                 to={item.to}
-                                className="text-gray-600 hover:text-blue-600 transition-colors duration-300 font-medium pb-2 border-b-2 border-transparent hover:border-blue-600"
+                                className="text-gray-600 hover:text-[#008080] transition-colors duration-300 font-medium pb-2 border-b-2 border-transparent hover:border-[#008080]"
                             >
                                 {item.label}
                             </Link>
                         ))}
                         <Link
                             to="/inquire"
-                            className="ml-4 px-4 py-2 bg-blue-600 text-white rounded-full hover:bg-blue-700 transition-transform duration-300 transform hover:scale-105 shadow-lg"
+                            className="ml-4 px-4 py-2 bg-[#008080] text-white rounded-full hover:bg-[#006666] transition-transform duration-300 transform hover:scale-105 shadow-lg"
                         >
                             문의하기 →
                         </Link>
@@ -54,7 +54,7 @@ const Header = () => {
                     <div className="lg:hidden flex items-center">
                         <button
                             onClick={() => setIsOpen(!isOpen)}
-                            className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-blue-500"
+                            className="p-2 rounded-md text-gray-500 hover:text-gray-700 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-[#008080]"
                             aria-expanded={isOpen}
                         >
                             <RxHamburgerMenu className="h-6 w-6" />
@@ -75,7 +75,7 @@ const Header = () => {
                             key={item.to}
                             to={item.to}
                             onClick={() => setIsOpen(false)}
-                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-blue-600 hover:bg-gray-50 transition-colors duration-200"
+                            className="block px-3 py-2 rounded-md text-base font-medium text-gray-700 hover:text-[#008080] hover:bg-gray-50 transition-colors duration-200"
                         >
                             {item.label}
                         </Link>
@@ -83,7 +83,7 @@ const Header = () => {
                     <Link
                         to="/inquire"
                         onClick={() => setIsOpen(false)}
-                        className="block w-full text-left mt-2 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700 transition-colors duration-200 shadow"
+                        className="block w-full text-left mt-2 px-4 py-2 bg-[#008080] text-white rounded-md hover:bg-[#006666] transition-colors duration-200 shadow"
                     >
                         문의하기
                     </Link>
