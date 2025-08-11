@@ -1,22 +1,18 @@
-import Inquire from "../components/Inquire";
+// src/pages/Home.jsx
+import Banner from "./Home/Banner.jsx";
 import CleanList from "./Home/CleanList.jsx";
-import Banner from "./Home/Banner.jsx"
 import PromiseList from "./Home/PromiseList.jsx";
-
+import Inquire from "../components/Inquire"; // Inquire 컴포넌트가 있다고 가정
 
 const Home = () => {
-
-    return(
-        <div>
+    return (
+        <main className="bg-white">
             <Banner />
-
             <CleanList />
-
             <PromiseList />
+            {/* <Inquire /> */} {/* 문의하기 컴포넌트가 준비되면 주석 해제 */}
+        </main>
+    );
+};
 
-            <Inquire />
-        </div>
-    )
-}
-
-export default Home
+export default Home;

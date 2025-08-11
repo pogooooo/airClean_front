@@ -1,80 +1,32 @@
-import styled from "styled-components";
-import logo from "../../assets/logo.png";
-import banner from '../../assets/banner.png'
-
-const BannerWrapper = styled.div`
-    background-image: url(${banner});
-    width: 100%;
-    height: clamp(400px, 80vh, 700px);
-    background-size: cover;
-    background-attachment: fixed;
-    overflow: hidden;
-    
-    display: flex;
-    align-items: center;
-    justify-content: center;
-`
-
-const BannerModal = styled.div`
-    width: clamp(280px, 60vw, 500px);
-    height: clamp(200px, 40vh, 300px);
-    background-color: white;
-    border-radius: 10px;
-    
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    cursor: default;
-`
-
-const ModalTitle = styled.div`
-    display: flex;
-    margin-top: 30px;
-    font-size: clamp(14px, 2vw, 18px);
-    
-    & > img {
-        height: clamp(20px, 4vw, 30px);
-    }
-    
-    & > div {
-        height: 30px;
-        display: flex;
-        align-items: center;
-    }
-`
-
-const ModalContent = styled.div`
-    font-size: clamp(18px, 3vw, 36px);
-    margin-top: 30px;
-`
-
-const ModalButton = styled.div`
-    background-color: #008080;
-    width: clamp(100px, 30vw, 150px);
-    height: clamp(40px, 8vh, 50px);
-    color: white;
-    font-size: clamp(14px, 2vw, 24px);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    border-radius: 10px;
-    margin-top: 30px;
-    cursor: pointer;
-`
+// src/pages/Home/Banner.jsx
+import logo from '../../assets/logo.png';
+// 실제 사용할 이미지 경로로 수정해주세요.
+import bannerHeroImage from '../../assets/images/banner-hero.jpg';
+import { Link } from 'react-router-dom';
 
 const Banner = () => {
-    return(
-        <BannerWrapper>
-            <BannerModal>
-                <ModalTitle>
-                    <img src={logo}/>
-                    <div>청결에어클린</div>
-                </ModalTitle>
-                <ModalContent>세상이 아름다운 것은<br/>청소하기 때문입니다.</ModalContent>
-                <ModalButton>문의하기 →</ModalButton>
-            </BannerModal>
-        </BannerWrapper>
-    )
-}
+    return (
+        <div className="relative w-full h-[80vh] min-h-[500px] max-h-[800px] bg-cover bg-center flex items-center justify-center px-4"
+             style={{ backgroundImage: `url(${bannerHeroImage})` }}
+        >
+            {/* 가독성을 위한 어두운 오버레이 */}
+            <div className="absolute inset-0 bg-black/40"></div>
 
-export default Banner
+            {/* z-10으로 오버레이 위에 콘텐츠가 오도록 설정 */}
+            <div className="relative z-10 w-full max-w-lg h-auto bg-white/10 backdrop-blur-md rounded-xl shadow-2xl flex flex-col items-center justify-center text-center p-6 md:p-8 cursor-default border border-white/20">
+                <div className="flex items-center gap-2">
+                    <img src={logo} alt="로고" className="h-7 md:h-8" />
+                    <span className="text-lg md:text-xl font-semibold text-white">청결에어클린</span>
+                </div>
+                <p className="text-2xl md:text-4xl font-bold text-white mt-6 leading-snug">
+                    세상이 아름다운 것은<br />청소하기 때문입니다.
+                </p>
+                <Link to="/inquire" className="mt-8 px-8 py-3 bg-teal-600 text-white font-bold text-lg rounded-full shadow-lg hover:bg-teal-700 transition-all duration-300 transform hover:scale-105">
+                    문의하기 →
+                </Link>
+            </div>
+        </div>
+    );
+};
+
+export default Banner;
